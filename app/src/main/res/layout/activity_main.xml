@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Persistent bottom sheet animation example"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/vBSBehavior"
+        style="@style/Widget.Design.BottomSheet.Modal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.LargeComponent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/vBSContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#222020"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/bSmallHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="35dp"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:text="small"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/purple_500"
+                    app:layout_constraintEnd_toStartOf="@id/bMediumHeight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/bMediumHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:text="medium"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/purple_500"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bSmallHeight"
+                    app:layout_constraintEnd_toStartOf="@id/bBigHeight"
+                    app:layout_constraintStart_toEndOf="@id/bSmallHeight" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/bBigHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:text="big"
+                    android:textColor="@color/white"
+                    app:chipBackgroundColor="@color/purple_500"
+                    app:layout_constraintBaseline_toBaselineOf="@id/bSmallHeight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/bMediumHeight" />
+
+                <TextView
+                    android:id="@+id/vBSCurrentState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="current bottom sheet state"
+                    app:layout_constraintEnd_toEndOf="@id/bMediumHeight"
+                    app:layout_constraintStart_toStartOf="@id/bMediumHeight"
+                    app:layout_constraintTop_toBottomOf="@id/bMediumHeight" />
+
+                <TextView
+                    android:id="@+id/vBSSlide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="current bottom sheet state"
+                    app:layout_constraintEnd_toEndOf="@id/vBSCurrentState"
+                    app:layout_constraintStart_toStartOf="@id/vBSCurrentState"
+                    app:layout_constraintTop_toBottomOf="@id/vBSCurrentState" />
+
+                <TextView
+                    android:id="@+id/tvFirstPart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="#B3FF0000"
+                    android:text="1. The universe (Latin: universus) is all of space and time[a] and their contents,[10] including planets, stars, galaxies, and all other forms of matter and energy."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vBSSlide" />
+
+                <TextView
+                    android:id="@+id/tvSecondPart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="#990000FF"
+                    android:text="2. While the spatial size of the entire universe is unknown,[3] it is possible to measure the size of the observable universe, which is currently estimated to be 93 billion light-years in diameter. In various multiverse hypotheses, a universe is one of many causally disconnected[11] constituent parts of a larger multiverse, which itself comprises all of space and time and its contents;[12] as a consequence, ‘the universe’ and ‘the multiverse’ are synonymous in such theories."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFirstPart" />
+
+                <TextView
+                    android:id="@+id/tvThirdPart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="#9926FF00"
+                    android:text="3. The earliest cosmological models of the universe were developed by ancient Greek and Indian philosophers and were geocentric, placing Earth at the center.[13][14] Over the centuries, more precise astronomical observations led Nicolaus Copernicus to develop the heliocentric model with the Sun at the center of the Solar System. In developing the law of universal gravitation, Isaac Newton built upon Copernicus' work as well as Johannes Kepler's laws of planetary motion and observations by Tycho Brahe."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSecondPart" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
